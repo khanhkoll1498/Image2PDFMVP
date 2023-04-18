@@ -13,29 +13,155 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
+        def formattedDate = new Date().format('hh.mm.MM.dd.yyyy')
+        archivesBaseName = "Image2PDF_V${versionName}_${formattedDate}"
+        
+        lintOptions {
+            checkReleaseBuilds false
+            abortOnError false
+        }
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        firebaseCrashlytics {
+            mappingFileUploadEnabled = false
+        }
+
+        multiDexEnabled true
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("key/release.jks")
+            storePassword "com.kna.image2pdfmvp"
+            keyAlias "release"
+            keyPassword "com.kna.image2pdfmvp"
+        }
+        debug {
+            storeFile file("key/debug.jks")
+            storePassword "com.kna.image2pdfmvp"
+            keyAlias "debug"
+            keyPassword "com.kna.image2pdfmvp"
+        }
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
         }
     }
+
+    flavorDimensions "dimen"
+    productFlavors {
+        vDevelop_ {
+            applicationId "com.kna.image2pdfmvp"
+            buildConfigField "boolean", "TEST_AD", "true"
+            dimension "dimen"
+            versionName "develop"
+
+
+            def addConstantTo = { target, constantName, constantValue ->
+                target.manifestPlaceholders += [(constantName): constantValue]
+                target.buildConfigField "String", "${constantName}", "\"${constantValue}\""
+            }
+            addConstantTo(owner, "APP_ID", "ca-app-pub-3940256099942544~3347511713")
+
+            addConstantTo(owner, "inter_splash", "ca-app-pub-3940256099942544/1033173712")
+
+            addConstantTo(owner, "inter_casting", "ca-app-pub-3940256099942544/1033173712")
+            addConstantTo(owner, "inter_find_device", "ca-app-pub-3940256099942544/1033173712")
+            addConstantTo(owner, "inter_screen_mirroring", "ca-app-pub-3940256099942544/8691691433")
+            addConstantTo(owner, "inter_click_media", "ca-app-pub-3270179691816977/8866186057")
+            addConstantTo(owner, "inter_click_web", "ca-app-pub-3270179691816977/6048451022")
+
+            addConstantTo(owner, "native_main", "ca-app-pub-3940256099942544/2247696110")
+            addConstantTo(owner, "native_setting", "ca-app-pub-3940256099942544/2247696110")
+            addConstantTo(owner, "native_finding_device", "ca-app-pub-3940256099942544/2247696110")
+            addConstantTo(owner, "native_casting_photo", "ca-app-pub-3940256099942544/2247696110")
+            addConstantTo(owner, "native_casting_audio", "ca-app-pub-3940256099942544/2247696110")
+            addConstantTo(owner, "native_casting_video", "ca-app-pub-3940256099942544/2247696110")
+            addConstantTo(owner, "native_casting_web", "ca-app-pub-3940256099942544/2247696110")
+            addConstantTo(owner, "native_photo_online", "ca-app-pub-3940256099942544/2247696110")
+            addConstantTo(owner, "native_audio", "ca-app-pub-3940256099942544/2247696110")
+            addConstantTo(owner, "native_photo", "ca-app-pub-3940256099942544/2247696110")
+            addConstantTo(owner, "native_video", "ca-app-pub-3940256099942544/2247696110")
+            addConstantTo(owner, "native_faq", "ca-app-pub-3940256099942544/2247696110")
+            addConstantTo(owner, "native_onboard_mirroring", "ca-app-pub-3940256099942544/2247696110")
+            addConstantTo(owner, "native_exit_webcast", "ca-app-pub-3940256099942544/2247696110")
+
+            addConstantTo(owner, "open_app", "ca-app-pub-3940256099942544/3419835294")
+
+        }
+
+        vOfficial_ {
+            applicationId "com.kna.image2pdfmvp"
+
+            buildConfigField "boolean", "TEST_AD", "false"
+            dimension "dimen"
+
+            def addConstantTo = { target, constantName, constantValue ->
+                target.manifestPlaceholders += [(constantName): constantValue]
+                target.buildConfigField "String", "${constantName}", "\"${constantValue}\""
+            }
+            addConstantTo(owner, "APP_ID", "ca-app-pub-3270179691816977~8995535187")
+
+            addConstantTo(owner, "inter_splash", "ca-app-pub-3270179691816977/7030251129")
+
+            addConstantTo(owner, "inter_casting", "ca-app-pub-3270179691816977/7221822813")
+            addConstantTo(owner, "inter_find_device", "ca-app-pub-3270179691816977/4720245885")
+            addConstantTo(owner, "inter_screen_mirroring", "ca-app-pub-3270179691816977/5034643175")
+            addConstantTo(owner, "inter_click_media", "ca-app-pub-3270179691816977/8866186057")
+            addConstantTo(owner, "inter_click_web", "ca-app-pub-3270179691816977/6048451022")
+
+            addConstantTo(owner, "native_main", "ca-app-pub-3270179691816977/4184595933")
+            addConstantTo(owner, "native_setting", "ca-app-pub-3270179691816977/2899434424")
+            addConstantTo(owner, "native_finding_device", "ca-app-pub-3270179691816977/6904104526")
+            addConstantTo(owner, "native_casting_photo", "ca-app-pub-3270179691816977/1534898781")
+            addConstantTo(owner, "native_casting_audio", "ca-app-pub-3270179691816977/1597326893")
+            addConstantTo(owner, "native_casting_video", "ca-app-pub-3270179691816977/9284245226")
+            addConstantTo(owner, "native_casting_web", "ca-app-pub-3270179691816977/6660013515")
+            addConstantTo(owner, "native_photo_online", "ca-app-pub-3270179691816977/3064652934")
+            addConstantTo(owner, "native_audio", "ca-app-pub-3270179691816977/8895564112")
+            addConstantTo(owner, "native_photo", "ca-app-pub-3270179691816977/5345000216")
+            addConstantTo(owner, "native_video", "ca-app-pub-3270179691816977/5155360152")
+            addConstantTo(owner, "native_faq", "ca-app-pub-3270179691816977/2529196813")
+            addConstantTo(owner, "native_language", "ca-app-pub-3270179691816977/2158108480")
+            addConstantTo(owner, "native_onboard_mirroring", "ca-app-pub-3270179691816977/4359295605")
+            addConstantTo(owner, "native_exit_webcast", "ca-app-pub-3270179691816977/9490055555")
+
+            addConstantTo(owner, "open_app", "ca-app-pub-3270179691816977/7591055455")
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    
     viewBinding {
         enabled true
     }
     dataBinding {
         enabled true
     }
+
+    android {
+        buildFeatures {
+            buildConfig true
+        }
+    }
 }
 
 dependencies {
+    implementation fileTree(dir: 'src/main/libs', include: ['*.aar', '*.jar'], exclude: [])
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.5.0'

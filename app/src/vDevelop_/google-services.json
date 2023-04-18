@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "654350064413",
+    "project_id": "image2pdf-bc707",
+    "storage_bucket": "image2pdf-bc707.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:654350064413:android:0147d8c84ff2c7196e9ff4",
+        "android_client_info": {
+          "package_name": "com.kna.image2pdfmvp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "654350064413-puututpi8b6nmqh74udqtd2f90d7eonr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kna.image2pdfmvp",
+            "certificate_hash": "64d72f219eda878dbdb2ec62a537cba9bb11e2c6"
+          }
+        },
+        {
+          "client_id": "654350064413-4uavc8nc69nhllr0n7dr65vn5n5l3r4n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqdr30SRKjuKl5j4Voc0Y7J5xFiS98_EQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "654350064413-4uavc8nc69nhllr0n7dr65vn5n5l3r4n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
