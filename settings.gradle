@@ -10,7 +10,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        jcenter()
+        maven { url "https://jitpack.io" }
     }
 }
 rootProject.name = "Image2PDFMVP"
 include ':app'
+include 'AdmobLibs'
