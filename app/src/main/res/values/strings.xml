@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Image2PDFMVP</string>
+    <string name="txt_files">Files</string>
+    <string name="txt_explain">Click button below to create pdf file \nfrom images</string>
+    <string name="txt_no_result">No Results!</string>
 </resources>

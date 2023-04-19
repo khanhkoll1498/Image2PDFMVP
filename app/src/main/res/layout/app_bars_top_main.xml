@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingHorizontal="@dimen/_12sdp"
+    android:paddingVertical="@dimen/_18sdp">
+
+    <ImageView
+        android:id="@+id/bt_menu"
+        android:layout_width="@dimen/_18sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:src="@drawable/ic_menu"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintBottom_toBottomOf="@id/txt_header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/txt_header" />
+
+    <TextView
+        android:id="@+id/txt_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:fontFamily="@font/poppins_semibold"
+        android:paddingTop="@dimen/_4sdp"
+        android:text="@string/txt_files"
+        android:textColor="@color/color_3c3c3c"
+        android:textSize="@dimen/_20sdp"
+        app:layout_constraintStart_toEndOf="@id/bt_menu"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <ImageView
+        android:id="@+id/iv_sort"
+        android:layout_width="@dimen/_22sdp"
+        android:layout_height="@dimen/_22sdp"
+        android:layout_marginEnd="@dimen/_2sdp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_sort_main"
+        app:layout_constraintBottom_toBottomOf="@id/txt_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_selectall"
+        android:layout_width="@dimen/_22sdp"
+        android:layout_height="@dimen/_22sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_select"
+        app:layout_constraintBottom_toBottomOf="@id/txt_header"
+        app:layout_constraintEnd_toStartOf="@id/iv_sort"
+        app:layout_constraintTop_toTopOf="@id/txt_header" />
+
+    <LinearLayout
+        android:id="@+id/ll_search"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_36sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="@drawable/bg_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_header">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_back_search"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_search" />
+
+        <com.kna.image2pdfmvp.mvp.view.widget.CustomSearchEditText
+            android:id="@+id/edt_search"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="Find the document"
+            android:imeOptions="actionDone"
+            android:inputType="text|textNoSuggestions"
+            android:paddingStart="@dimen/_8sdp"
+            android:singleLine="true"
+            android:textColor="#000"
+            android:textColorHint="#909090"
+            android:textSize="@dimen/_12sdp"
+            tools:ignore="NestedWeights,RtlSymmetry" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_delete_text"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
